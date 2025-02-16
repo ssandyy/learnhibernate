@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 public class Avatar {
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int aid;
     private String aname;
     private String tech;
