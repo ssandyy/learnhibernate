@@ -14,9 +14,9 @@ public class App
     public static void main( String[] args )
     {
         Avatar av1 = new Avatar();
-        av1.setAid(002);
-        av1.setAname("Valentine2");
-        av1.setTech("Humana");
+        av1.setAid(4);
+        av1.setAname("Valentina");
+        av1.setTech("Humanaya");
 
 
         Configuration configuration = new Configuration();
@@ -34,14 +34,18 @@ public class App
             session.beginTransaction();
 
         //to push data
-            session.merge(av1); // to post data
+            session.merge(av1); // to post data and update data
             session.getTransaction().commit();
 
         // to get data (fetch)
-            //Avatar avsearch = session.get(Avatar.class, 001);
-            //Avatar avsearch = session.byId(Avatar.class).load(002);
-            Avatar avsearch = session.find(Avatar.class, 001);
+            //Avatar avsearch = session.get(Avatar.class, 001); // Eager fetching
+            //Avatar avsearch = session.byId(Avatar.class).load(002);  // lazy fetching
+            //Avatar avsearch = session.byId(Avatar.class).getReference(002); // lazy fetching
+            Avatar avsearch = session.find(Avatar.class, 001);  // Eager fetching
             System.out.println(avsearch);
+
+//            Avatar avsearch2 = session.find(Avatar.class, 003);
+//            session.remove(avsearch2);
 
 
         session.close();
